@@ -1,305 +1,1162 @@
-<!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Richard's Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/index.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Richard Selvaraj — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bg: #0b0f14;
+        --card: #131a22;
+        --muted: #9fb0c3;
+        --text: #e6eef6;
+        --accent: #4fd1c5;
+        --accent-2: #8ab4ff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, sans-serif;
+        color: var(--text);
+        background: radial-gradient(
+            1000px 600px at 80% -10%,
+            rgba(79, 209, 197, 0.08),
+            transparent
+          ),
+          radial-gradient(
+            900px 500px at 10% 10%,
+            rgba(138, 180, 255, 0.08),
+            transparent
+          ),
+          var(--bg);
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      /* --- Layout --- */
+      .container {
+        width: min(1150px, calc(100% - 2rem));
+        margin-inline: auto;
+      }
+      header.nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        backdrop-filter: saturate(1.2) blur(8px);
+        background: linear-gradient(
+          180deg,
+          rgba(11, 15, 20, 0.85),
+          rgba(11, 15, 20, 0.55) 60%,
+          transparent
+        );
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.85rem 0;
+      }
+      .brand {
+        display: flex;
+        gap: 0.6rem;
+        align-items: center;
+        font-weight: 800;
+        letter-spacing: 0.3px;
+      }
+      .brand .spark {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: conic-gradient(from 200deg, var(--accent), var(--accent-2));
+        box-shadow: 0 0 18px var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        gap: 1.2rem;
+        align-items: center;
+      }
+      .nav-links a {
+        opacity: 0.85;
+      }
+      .nav-links a:hover {
+        opacity: 1;
+      }
+      .btn {
+        display: inline-flex;
+        gap: 0.5rem;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        padding: 0.6rem 0.9rem;
+        border-radius: 999px;
+        transition: 0.25s transform, 0.25s background, 0.25s box-shadow;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .btn.accent {
+        border: none;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: #0b0f14;
+        font-weight: 700;
+      }
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+      /* --- Hero --- */
+      .hero {
+        position: relative;
+        padding-top: 120px;
+        padding-bottom: 100px;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2rem;
+        align-items: center;
+      }
+      @media (max-width: 900px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>This is<br />
-						RICHARD SELVARAJ</h1>
-						<p>A coding enthusiast with skills in SQL, EXCEL, Tableau, R, and Python. Please scroll down to see my skillsets from my voluntary projects <a href="https://github.com/boomshineking?tab=repositories">github profile, </a> <a href="https://www.linkedin.com/in/richard-selvaraj-ab6bba217/">linkedin profile </a><br />
-						 .</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+      .kicker {
+        color: var(--muted);
+        letter-spacing: 0.15rem;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        margin-bottom: 0.75rem;
+      }
+      h1.title {
+        font-size: clamp(2rem, 5vw, 3.6rem);
+        line-height: 1.05;
+        margin: 0 0 1rem;
+        font-weight: 800;
+      }
+      .subtitle {
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 55ch;
+      }
+      .cta-row {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 1.3rem;
+        flex-wrap: wrap;
+      }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">SCROLL DOWN TO VIEW PROJECTS</a>
-					</header>
+      /* --- Hero card --- */
+      .hero-card {
+        background: radial-gradient(
+            900px 400px at 10% -50%,
+            rgba(138, 180, 255, 0.12),
+            transparent
+          ),
+          var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 1.2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+      .stat {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 1rem;
+        border-radius: 16px;
+      }
+      .stat b {
+        font-size: 1.4rem;
+      }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Projects</a></li>
-							
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/richard-selvaraj-ab6bba217/" class="label"><span class="label">linkedin</span></a></li>
-							<li><a href="https://github.com/boomshineking?tab=repositories" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						
-						</ul>
-					</nav>
+      /* --- Sections --- */
+      section {
+        padding: 80px 0;
+      }
+      .section-title {
+        font-size: clamp(1.4rem, 3.4vw, 2.2rem);
+        margin: 0 0 0.75rem;
+        font-weight: 800;
+      }
+      .section-sub {
+        color: var(--muted);
+        margin: 0 0 1.6rem;
+      }
 
-				<!-- Main -->
-					<div id="main">
+      /* --- Skills tags --- */
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .tag {
+        padding: 0.4rem 0.65rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
 
-						<!-- Featured Post -->
-						<article class="post featured">
-							<header class="major">
-								<h2>
-									<a href="https://github.com/boomshineking/llama2-blog-generator">
-										Deployment of Prompt-Engineered Model to Create Blog<br />
-										Depending on 3 Categories of People: 1. Common People, 2. Researchers, 3. Data Scientists
-									</a>
-								</h2>
-								<p>
-									Deployment of the blog generator model is available on Hugging Face Spaces. 
-									<a href="https://huggingface.co/spaces/Richard9905/Richards_Blog_generator" target="_blank">
-										Click here to see the live deployment.
-									</a>
-								</p>
-							</header>
-							<a href="https://github.com/boomshineking/llama2-blog-generator" class="image main">
-								<img src="images/prompt.jpeg" alt="Prompt Engineered Blog Generator" />
-							</a>
-							<ul class="actions special">
-								<li>
-									<a href="https://github.com/boomshineking/llama2-blog-generator" class="button large">View Project</a>
-								</li>
-								<li>
-									<a href="https://huggingface.co/spaces/Richard9905/Richards_Blog_generator" class="button large" target="_blank">view live deployment</a>
-								</li>
-							</ul>
-						</article>						
-						<!-- Posts -->
-						  
+      /* --- Projects --- */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+      }
+      @media (max-width: 1000px) {
+        .projects {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 620px) {
+        .projects {
+          grid-template-columns: 1fr;
+        }
+      }
 
-							<section class="posts">
-								 <article>
-								<header >
-									<h2><a href="https://github.com/boomshineking/Bible_Qlora_Model">Qlora chatbot model <br />
-										</a></h2>
-									   <p>First we take a llama-3.1-8b-instruct finetune on custom dataset that was created using LLAMA instead of OLLAMA locally due to IDE limitations using QLORA methode using Bits and Bytes which is SOTA methode where has the least accuracy loss due to quantization </p>
-								</header>
-									<a href="https://github.com/boomshineking/Bible_Qlora_Model" class="image main"><img src="images/qlora.jpeg" alt="" /></a>
-										<ul class="actions special">
-											<li><a href="https://github.com/boomshineking/Bible_Qlora_Model" class="button large">View project </a></li>
-										</ul>
-							</article>
-							  <article>
-								                 <header >
-											<h2><a href="https://github.com/boomshineking/AWQ_quantization_llama3.1instruct">AWQ chatbot model <br />
-											</a></h2>
-											<p>The base llama3.1-instruct model was first fine tuned on  a custom dataset that was created this model is then Quantized using AWQ which follows the recent SOTA trend and also being the most highly compatible quantized methode reducing hardware requirements whilst decreasing inference time  </p>
-										</header>
-										<a href="https://github.com/boomshineking/AWQ_quantization_llama3.1instruct" class="image main"><img src="images/awq.jpeg" alt="" /></a>
-										<ul class="actions special">
-											<li><a href="https://github.com/boomshineking/AWQ_quantization_llama3.1instruct" class="button large">View project </a></li>
-										</ul>
-									</article>
-								<article class="post featured">
-									<header class="major">
-										<h2><a href="https://github.com/boomshineking/Text-Summarization-NLP-Project">End to End Text summerization NLP project  <br />
-										With CI/CD pipelining using GitHub actions and AWS </a></h2>
-										<p>Developed a Text summarization tool using deep learning techniques and deployed using GitHub Actions and AWS with EC2 and ECR </p>
-									</header>
-									<a href="https://github.com/boomshineking/Text-Summarization-NLP-Project" class="image main"><img src="images/tsm.jpeg" alt="" /></a>
-									<ul class="actions special">
-										<li><a href="https://github.com/boomshineking/Text-Summarization-NLP-Project" class="button large">View project </a></li>
-									</ul>
-								</article>
-								<article>
-                                    <header>
-                                        <h2>
-                                            <a href="https://github.com/boomshineking/Bert-Comment-Rater">
-                                                Sentimental Analysis using BERT for the comments that you paste or type <br />
-                                                Used Streamlit community to deploy this model
-                                            </a>
-                                        </h2>
-                                        <p>This project involves deploying the model on the Streamlit Community Cloud
-						<a href="https://bert-comment-rater-dgijhprgp75rvoqutpsxsw.streamlit.app/" target="_blank">
-										Click here to see the live deployment.</p>
-                                    </header>
-                                    
-                                    <a href="https://github.com/boomshineking/Bert-Comment-Rater" class="image main">
-                                        <img src="images/sentir.jpeg" alt="" />
-                                    </a>
-                                    
-                                    <ul class="actions special">
-                                        <li><a href="https://github.com/boomshineking/Bert-Comment-Rater" class="button large">View Project</a></li>
-                                        <li><a href="https://bert-comment-rater-dgijhprgp75rvoqutpsxsw.streamlit.app/" class="button large" target="_blank">view live deployment</a></li>
-                                    </ul>
-                                </article>
-                                
-								<article>
-									<header >
-										<h2><a href="https://github.com/boomshineking/Sentimental-Analysis-using-Bert-">Sentimental Analysis using Bert from google <br />
-										used hugging face and data scraping with beautifulsoup </a></h2>
-										<p>In this project I scraped the data using beautifulsoup and then use sentimental analysis on the comments provided by the customers to the resutrants </p>
-									</header>
-									<a href="https://github.com/boomshineking/Sentimental-Analysis-using-Bert-" class="image main"><img src="images/senti.jpeg" alt="" /></a>
-									<ul class="actions special">
-										<li><a href="https://github.com/boomshineking/Sentimental-Analysis-using-Bert-" class="button large">View project </a></li>
-									</ul>
-								</article>
-							
-								
-									<article>
-										<header>
-											<h2><a href="https://github.com/boomshineking/Azure-ML-Deployment/tree/main">End-to-End ML deployment in AZURE <br />
-											Predict Jaipur's Air Quality using ML with deployment in AZURE</a></h2>
-											<p>Developed CI/CD pipeline with Azure to create a yaml file and use GitHub Actions. Also implemented data cleansing, feature engineering, EDA, model monitoring, and Flask with Jinja2.</p>
-										</header>
-										<a href="https://github.com/boomshineking/Azure-ML-Deployment/tree/main" class="image main"><img src="images/jaipur.jpeg" alt="" /></a>
-										<ul class="actions special">
-											<li><a href="https://github.com/boomshineking/Azure-ML-Deployment/tree/main" class="button large">View project</a></li>
-										</ul>
-									</article>
-								    <article>
-										<header>
-											<h2><a href="https://github.com/boomshineking/Machine-learning-in-R">Machine learning model to find out new species of Iris flower <br />
-											using R programming</a></h2>
-											<p>Developed various ML models and used the most suitable model to identify if a new species of iris flower exists within an established dataset from 1944.</p>
-										</header>
-										<a href="https://github.com/boomshineking/Machine-learning-in-R" class="image main"><img src="images/flower.jpeg" alt="" /></a>
-										<ul class="actions special">
-											<li><a href="https://github.com/boomshineking/Machine-learning-in-R" class="button large">View project</a></li>
-										</ul>
-									</article>
+      .card {
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        overflow: hidden;
+        transition: 0.35s transform, 0.35s box-shadow, 0.35s border-color;
+        position: relative;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 22px 40px rgba(0, 0, 0, 0.35);
+        border-color: rgba(255, 255, 255, 0.14);
+      }
+      .thumb {
+        aspect-ratio: 16/9;
+        background: #0f141b;
+        position: relative;
+        overflow: hidden;
+        display: block;
+      }
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: saturate(1.05) contrast(1.05);
+      }
+      .pill {
+        position: absolute;
+        inset: auto auto 12px 12px;
+        background: rgba(11, 15, 20, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        padding: 0.35rem 0.6rem;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+      .content {
+        padding: 1rem 1rem 1.1rem;
+      }
+      .content h3 {
+        margin: 0.2rem 0 0.4rem;
+        font-size: 1.15rem;
+      }
+      .content p {
+        margin: 0;
+        color: #cbd6e2;
+      }
+      .card-actions {
+        display: flex;
+        gap: 0.5rem;
+        padding: 0 1rem 1rem;
+      }
 
-									
-									<article>
-										<header >
-											<h2><a href="https://github.com/boomshineking/Survey-Breakdown">Survey-breakdown-using-Power-BI <br />
-											</a></h2>
-											<p>This visualization project helps in understanding more about the participants who took part in a survey among Data professionals through visualizations. </p>
-										</header>
-										<a href="https://github.com/boomshineking/Survey-Breakdown" class="image main"><img src="images/power.jpeg" alt="" /></a>
-										<ul class="actions special">
-											<li><a href="https://github.com/boomshineking/Survey-Breakdown" class="button large">View project </a></li>
-										</ul>
-									</article>
+      .filter-row {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+      }
+      .filter-btn {
+        padding: 0.45rem 0.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 10px;
+        color: var(--muted);
+        cursor: pointer;
+        font-size: 0.94rem;
+        background: transparent;
+      }
+      .filter-btn.active,
+      .filter-btn:hover {
+        border-color: var(--accent);
+        color: var(--text);
+      }
 
-								        <article>
-										<header >
-											<h2><a href="https://github.com/boomshineking/ETL_Pipelining_using_Google">ETL pipelining using GCP to Power Bi <br />
-											</a></h2>
-											<p> The data set is comprised of NewYork taxi business the data was first extracted using python then stored in gcp bucket the data is then modified using Big query and then the data is visualized through Power BI </p>
-										</header>
-										<a href="https://github.com/boomshineking/ETL_Pipelining_using_Google" class="image main"><img src="images/pbi.jpeg" alt="" /></a>
-										<ul class="actions special">
-											<li><a href="https://github.com/boomshineking/ETL_Pipelining_using_Google" class="button large">View project </a></li>
-										</ul>
-									</article>
-								
-									<article>
-										<header>
-											<h2><a href="https://github.com/boomshineking/Predictive-analysis-for-diabetes">Predictive analysis for Diabetes <br />
-											using Python</a></h2>
-											<p>In this project, we clean, modify, and visualize data to ensure it's suitable for algorithms. We also choose the best-performing model from four pre-tested algorithms for prediction.</p>
-										</header>
-										<a href="https://github.com/boomshineking/Predictive-analysis-for-diabetes" class="image main"><img src="images/diabetes.jpeg" alt="" /></a>
-										<ul class="actions special">
-											<li><a href="https://github.com/boomshineking/Predictive-analysis-for-diabetes" class="button large">View project</a></li>
-										</ul>
-									</article>
-					
-								<article>
-									<header >
-										<h2><a href="https://github.com/boomshineking/SQL-DATA-CLEANING">DATA CLEANING <br />
-										IN SQL</a></h2>
-										<p>In this project we take raw housing data and transform it in SQL Server to make it more usable for analysis. </p>
-									</header>
-									<a href="https://github.com/boomshineking/SQL-DATA-CLEANING" class="image main"><img src="images/housing.jpeg" alt="" /></a>
-									<ul class="actions special">
-										<li><a href="https://github.com/boomshineking/SQL-DATA-CLEANING" class="button large">View project </a></li>
-									</ul>
-								</article>
+      /* --- Contact --- */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 0.6fr;
+        gap: 1.2rem;
+      }
+      @media (max-width: 900px) {
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+      }
+      .contact-card {
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        padding: 1.2rem;
+      }
+      .row {
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+        margin: 0.35rem 0;
+      }
+      .row i {
+        opacity: 0.8;
+      }
 
-								<article>
-									<header>
-										<h2><a href="https://github.com/boomshineking/CNN-using-mlflow-for-model-comparison-">CNN using MLFLOW and gradio <br />
-										</a></h2>
-										<p>Developed image processing model through CNN to detect and recognise daily objects in our day to day life</p>
-									</header>
-									<a href="https://github.com/boomshineking/CNN-using-mlflow-for-model-comparison-" class="image main"><img src="images/cnn.jpeg" alt="" /></a>
-									<ul class="actions special">
-										<li><a href="https://github.com/boomshineking/CNN-using-mlflow-for-model-comparison-" class="button large">View project</a></li>
-									</ul>
-								</article>
-					
-								<article>
-									<header>
-										<h2><a href="https://github.com/boomshineking/Analysis-and-Visualization-of-Covid--19-using-SQL-and-Tableu">Data analysis and visualisation using SQL and tableau <br />
-										</a></h2>
-									</header>
-									<a href="https://github.com/boomshineking/Analysis-and-Visualization-of-Covid--19-using-SQL-and-Tableu" class="image fit"><img src="images/covid.jpeg" alt="" /></a>
-									<p>SQL-Based-ETL-Pipeline-for-Covid-19-Data-and-Visualization</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/boomshineking/Analysis-and-Visualization-of-Covid--19-using-SQL-and-Tableu" class="button">View project </a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="https://github.com/boomshineking/Correlation-of-data-patterns-using-python">Using Principle Component Analysis(PCA) through Python to analyse and correlate revenues from varying conditions for a movie <br />
-										</a></h2>
-									</header>
-									<a href="https://github.com/boomshineking/Correlation-of-data-patterns-using-python" class="image fit"><img src="images/movie.jpeg" alt="" /></a>
-									<p>In this project we look at what conditions affect the gross revenue of different movies</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/boomshineking/Correlation-of-data-patterns-using-python" class="button">View project</a></li>
-									</ul>
-								</article>
-						</section>	
-							
-								
-						
-						<section class="split contact">
-							<section class="alt">
-								<h3>Location</h3>
-								<p>Coventry</p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">r10053506@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Phone number</h3>
-								<p><a href="#">+447454203741</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									
-									<li><a href="https://www.linkedin.com/in/richard-selvaraj-ab6bba217/" class="label"><span class="label">linkedin</span></a></li>
-									<li><a href="https://github.com/boomshineking?tab=repositories" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						
-					</footer>
+      /* --- Footer --- */
+      footer {
+        padding: 28px 0;
+        color: var(--muted);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+      /* --- Reveal on scroll --- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
 
-			</div>
+      /* --- Canvas particle backdrop --- */
+      #stars {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="stars"></canvas>
+    <header class="nav">
+      <div class="container nav-inner">
+        <a href="#top" class="brand"
+          ><span class="spark"></span> Richard Selvaraj</a
+        >
+        <nav class="nav-links">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+          <a
+            class="btn"
+            href="https://github.com/boomshineking?tab=repositories"
+            target="_blank"
+            rel="noopener"
+            ><i class="fa-brands fa-github"></i> GitHub</a
+          >
+          <a
+            class="btn accent"
+            href="https://www.linkedin.com/in/richard-stepehenraj-ab6bba217/"
+            target="_blank"
+            rel="noopener"
+            ><i class="fa-brands fa-linkedin"></i> LinkedIn</a
+          >
+        </nav>
+      </div>
+    </header>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <main id="top">
+      <!-- Hero -->
+      <section class="hero container">
+        <div class="hero-grid">
+          <div>
+            <div class="kicker">Data & Analytics</div>
+            <h1 class="title">
+              Hi, I’m
+              <span
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent-2)
+                  );
+                  -webkit-background-clip: text;
+                  background-clip: text;
+                  color: transparent;
+                "
+                >Richard Selvaraj</span
+              >
+            </h1>
+            <p class="subtitle">
+              A coding enthusiast with hands-on experience in <b>SQL</b>,
+              <b>Excel</b>, <b>Tableau / Power BI</b>, <b>R</b>, and
+              <b>Python</b>. Below are selected projects spanning ML, LLMs/NLP,
+              data cleaning, BI dashboards, cloud deployments, and exploratory
+              analysis.
+            </p>
+            <div class="cta-row">
+              <a class="btn accent" href="#projects"
+                ><i class="fa-solid fa-arrow-down"></i> View Projects</a
+              >
+              <a class="btn" href="mailto:richard72670499@gmail.com"
+                ><i class="fa-regular fa-envelope"></i> Email Me</a
+              >
+            </div>
+          </div>
+          <aside class="hero-card reveal">
+            <div class="hero-stats">
+              <div class="stat">
+                <div style="color: var(--muted); font-size: 0.86rem">
+                  Primary Stack
+                </div>
+                <b>SQL · Python</b>
+                <div class="tags" style="margin-top: 0.6rem">
+                  <span class="tag">Pandas</span
+                  ><span class="tag">Scikit-learn</span
+                  ><span class="tag">Power BI</span>
+                </div>
+              </div>
+              <div class="stat">
+                <div style="color: var(--muted); font-size: 0.86rem">
+                  Interests
+                </div>
+                <b>ML · LLM · MLOps</b>
+                <div class="tags" style="margin-top: 0.6rem">
+                  <span class="tag">ETL</span><span class="tag">Dashboards</span
+                  ><span class="tag">Cloud</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
 
-	</body>
+      <!-- Skills -->
+      <section id="skills" class="container reveal">
+        <h2 class="section-title">Skills & Tools</h2>
+        <p class="section-sub">
+          Comfortable across data prep, modelling, LLMs, deployment, and
+          storytelling.
+        </p>
+        <div class="tags">
+          <span class="tag">SQL Server</span>
+          <span class="tag">Python</span>
+          <span class="tag">R</span>
+          <span class="tag">Excel</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">Transformers</span>
+          <span class="tag">LLM</span>
+          <span class="tag">CNN</span>
+          <span class="tag">MLOps</span>
+          <span class="tag">GCP</span>
+          <span class="tag">Azure</span>
+          <span class="tag">AWS</span>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="container reveal">
+        <div class="filter-row">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="ml">ML</button>
+          <button class="filter-btn" data-filter="llm">LLM</button>
+          <button class="filter-btn" data-filter="nlp">NLP</button>
+          <button class="filter-btn" data-filter="backend">Backend</button>
+          <button class="filter-btn" data-filter="sql">SQL</button>
+          <button class="filter-btn" data-filter="bi">BI / Viz</button>
+          <button class="filter-btn" data-filter="py">Python</button>
+          <button class="filter-btn" data-filter="cloud">Cloud</button>
+          <button class="filter-btn" data-filter="etl">ETL</button>
+          <button class="filter-btn" data-filter="viz">Viz</button>
+          <button class="filter-btn" data-filter="quant">Quantization</button>
+          <button class="filter-btn" data-filter="r">R</button>
+        </div>
+
+        <div class="projects" id="projectGrid">
+          <!-- LLaMA2 Blog Generator -->
+          <article class="card" data-tags="llm nlp py backend">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/llama2-blog-generator"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="images/prompt.jpeg"
+                alt="Prompt-engineered blog generator"
+              />
+              <span class="pill">LLaMA · Prompting</span>
+            </a>
+            <div class="content">
+              <h3>Prompt-Engineered Blog Generator</h3>
+              <p>
+                Generates blogs for common users, researchers, and data
+                scientists with tailored prompts.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/llama2-blog-generator"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- QLoRA chatbot -->
+          <article class="card" data-tags="llm nlp ml py quant">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/Bible_Qlora_Model"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/qlora.jpeg" alt="QLoRA fine-tuning project" />
+              <span class="pill">QLoRA · PEFT</span>
+            </a>
+            <div class="content">
+              <h3>QLoRA Chatbot Model</h3>
+              <p>
+                Finetuned LLaMA-3.1-8B-Instruct with Bits-and-Bytes quantization
+                for efficient training.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/Bible_Qlora_Model"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- AWQ quantization + A/B -->
+          <article class="card" data-tags="llm quant backend py">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/AWQ_quantization_llama3.1instruct"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/awq.jpeg" alt="AWQ quantized model" />
+              <span class="pill">AWQ · A/B Tests</span>
+            </a>
+            <div class="content">
+              <h3>AWQ Quantized Chatbot</h3>
+              <p>
+                Quantized LLaMA-3.1-Instruct; compared latency and quality
+                against baseline models.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/AWQ_quantization_llama3.1instruct"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- Text Summarization (NLP) -->
+          <article class="card" data-tags="nlp ml backend cloud py">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/Text-Summarization-NLP-Project"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/tsm.jpeg" alt="Text summarization project" />
+              <span class="pill">Summarization · CI/CD</span>
+            </a>
+            <div class="content">
+              <h3>End-to-End Text Summarization</h3>
+              <p>
+                Deep-learning summarizer with CI/CD using GitHub Actions and AWS
+                (EC2/ECR).
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/Text-Summarization-NLP-Project"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- BERT Comment Rater -->
+          <article class="card" data-tags="nlp py">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/Bert-Comment-Rater"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/sentir.jpeg" alt="BERT comment rater" />
+              <span class="pill">BERT · Streamlit</span>
+            </a>
+            <div class="content">
+              <h3>Sentiment — BERT Comment Rater</h3>
+              <p>
+                Rates pasted/typed comments using a BERT classifier; Streamlit
+                app version included.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/Bert-Comment-Rater"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- Sentimental Analysis using BERT (scraped data) -->
+          <article class="card" data-tags="nlp py">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/Sentimental-Analysis-using-Bert-"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="images/senti.jpeg"
+                alt="BERT sentiment on scraped reviews"
+              />
+              <span class="pill">BERT · Scraping</span>
+            </a>
+            <div class="content">
+              <h3>Sentiment Analysis using BERT</h3>
+              <p>
+                Scraped restaurant reviews with BeautifulSoup and performed
+                sentiment analysis.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/Sentimental-Analysis-using-Bert-"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- Azure ML Deployment (Jaipur AQI) -->
+          <article class="card" data-tags="ml cloud backend">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/Azure-ML-Deployment/tree/main"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="images/jaipur.jpeg"
+                alt="Azure ML deployment Jaipur air quality"
+              />
+              <span class="pill">Azure · CI/CD</span>
+            </a>
+            <div class="content">
+              <h3>Azure ML: Jaipur Air Quality</h3>
+              <p>
+                End-to-end ML pipeline with GitHub Actions, data cleansing,
+                feature engineering, and monitoring.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/Azure-ML-Deployment/tree/main"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- Machine learning in R (Iris) -->
+          <article class="card" data-tags="ml r">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/Machine-learning-in-R"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/flower.jpeg" alt="Iris ML in R" />
+              <span class="pill">R · Classification</span>
+            </a>
+            <div class="content">
+              <h3>Iris Species — ML in R</h3>
+              <p>
+                Built and compared multiple models to identify potential new
+                iris species from a classic dataset.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/Machine-learning-in-R"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- Survey Breakdown (Power BI) -->
+          <article class="card" data-tags="bi viz">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/Survey-Breakdown"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/power.jpeg" alt="Power BI dashboard" />
+              <span class="pill">Power BI</span>
+            </a>
+            <div class="content">
+              <h3>Survey Breakdown — Data Pros</h3>
+              <p>
+                Interactive dashboard exploring demographics and preferences of
+                data professionals.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/Survey-Breakdown"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- ETL to Power BI (GCP) -->
+          <article class="card" data-tags="etl bi viz sql cloud">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/ETL_Pipelining_using_Google"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/pbi.jpeg" alt="ETL pipeline to Power BI" />
+              <span class="pill">ETL · GCP</span>
+            </a>
+            <div class="content">
+              <h3>ETL Pipeline (NYC Taxi) → Power BI</h3>
+              <p>
+                Extracted with Python, stored on GCP, transformed in BigQuery,
+                visualised in Power BI.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/ETL_Pipelining_using_Google"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- Predictive analysis for Diabetes -->
+          <article class="card" data-tags="ml py">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/Predictive-analysis-for-diabetes"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/diabetes.jpeg" alt="Diabetes prediction" />
+              <span class="pill">ML · EDA</span>
+            </a>
+            <div class="content">
+              <h3>Predictive Analysis for Diabetes</h3>
+              <p>
+                Cleaned, transformed, and visualised the dataset; compared
+                models to select the best predictor.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/Predictive-analysis-for-diabetes"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- SQL Data Cleaning -->
+          <article class="card" data-tags="sql">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/SQL-DATA-CLEANING"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/housing.jpeg" alt="SQL housing data cleaning" />
+              <span class="pill">T-SQL</span>
+            </a>
+            <div class="content">
+              <h3>Data Cleaning in SQL</h3>
+              <p>
+                Transformed raw housing data in SQL Server to a clean,
+                analysis-ready dataset.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/SQL-DATA-CLEANING"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- CNN using MLflow + Gradio -->
+          <article class="card" data-tags="ml py backend">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/CNN-using-mlflow-for-model-comparison-"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/cnn.jpeg" alt="CNN MLflow Gradio" />
+              <span class="pill">CNN · MLflow</span>
+            </a>
+            <div class="content">
+              <h3>CNN with MLflow & Gradio</h3>
+              <p>
+                Image recognition pipeline with experiment tracking and a simple
+                Gradio UI.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/CNN-using-mlflow-for-model-comparison-"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- COVID Analysis (SQL + Tableau) -->
+          <article class="card" data-tags="sql bi viz">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/Analysis-and-Visualization-of-Covid--19-using-SQL-and-Tableu"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="images/covid.jpeg"
+                alt="Covid analysis and Tableau viz"
+              />
+              <span class="pill">SQL · Tableau</span>
+            </a>
+            <div class="content">
+              <h3>COVID-19: SQL & Tableau</h3>
+              <p>
+                SQL-based ETL and Tableau visualisation of key lockdown metrics
+                and trends.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/Analysis-and-Visualization-of-Covid--19-using-SQL-and-Tableu"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+
+          <!-- Correlation of data patterns (Python) -->
+          <article class="card" data-tags="py">
+            <a
+              class="thumb"
+              href="https://github.com/boomshineking/Correlation-of-data-patterns-using-python"
+              target="_blank"
+              rel="noopener"
+            >
+              <img src="images/movie.jpeg" alt="Movie revenue correlation" />
+              <span class="pill">EDA · PCA</span>
+            </a>
+            <div class="content">
+              <h3>Correlation of Data Patterns</h3>
+              <p>
+                Explored drivers of movie gross revenue with correlation
+                analysis and PCA.
+              </p>
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://github.com/boomshineking/Correlation-of-data-patterns-using-python"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-brands fa-github"></i> Repository</a
+              >
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="container reveal">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-sub">
+          Based in Coventry — open to collaboration and data roles.
+        </p>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="row">
+              <i class="fa-solid fa-location-dot"></i> Coventry, United Kingdom
+            </div>
+            <div class="row">
+              <i class="fa-regular fa-envelope"></i>
+              <a href="mailto:richard72670499.com">richard72670499@gmail.com</a>
+            </div>
+            <div class="row">
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:+447454203741">+44 7454203741</a>
+            </div>
+            <div class="row">
+              <i class="fa-brands fa-linkedin"></i>
+              <a
+                target="_blank"
+                rel="noopener"
+                href="https://www.linkedin.com/in/richard-stepehenraj-ab6bba217/"
+                >LinkedIn</a
+              >
+            </div>
+            <div class="row">
+              <i class="fa-brands fa-github"></i>
+              <a
+                target="_blank"
+                rel="noopener"
+                href="https://github.com/boomshineking?tab=repositories"
+                >GitHub</a
+              >
+            </div>
+          </div>
+          <div class="contact-card">
+            <form
+              id="msgForm"
+              class="reveal"
+              onsubmit="return sendMessage(event);"
+            >
+              <label for="name">Your Name</label>
+              <input id="name" name="name" required placeholder="Jane Doe" />
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="you@example.com"
+              />
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                placeholder="Hi Richard, I’d love to connect about…"
+              ></textarea>
+              <button
+                class="btn accent"
+                type="submit"
+                style="width: 100%; justify-content: center; margin-top: 0.6rem"
+              >
+                <i class="fa-regular fa-paper-plane"></i> Send
+              </button>
+              <p
+                id="formNote"
+                class="section-sub"
+                style="margin: 0.8rem 0 0; display: none"
+              >
+                Thanks! This demo shows a toast and opens your mail client with
+                a pre-filled email to Richard.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        © <span id="year"></span> Richard Selvaraj — Design & build with HTML ·
+        CSS · JS
+      </div>
+    </footer>
+
+    <script>
+      // Dynamic year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // IntersectionObserver reveal
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document
+        .querySelectorAll(".reveal, section.container")
+        .forEach((el) => io.observe(el));
+
+      // Projects filter
+      const buttons = document.querySelectorAll(".filter-btn");
+      const cards = document.querySelectorAll(".card");
+      buttons.forEach((btn) =>
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          const f = btn.dataset.filter;
+          cards.forEach((c) => {
+            const tags = c.dataset.tags || "";
+            const list = tags.split(" ").filter(Boolean);
+            const show = f === "all" || list.includes(f);
+            c.style.display = show ? "" : "none";
+          });
+        })
+      );
+
+      // Contact form demo: open mailto and animated toast
+      function sendMessage(e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const msg = document.getElementById("message").value.trim();
+        const body = encodeURIComponent(
+          `From: ${name} <${email}>%0D%0A%0D%0A${msg}`
+        );
+        const mailto = `mailto:richard72670499@gmail.com?subject=Portfolio%20Message%20from%20${encodeURIComponent(
+          name
+        )}&body=${body}`;
+        document.getElementById("formNote").style.display = "block";
+        window.location.href = mailto;
+        return false;
+      }
+
+      // Minimal starfield / particle background
+      const canvas = document.getElementById("stars");
+      const ctx = canvas.getContext("2d");
+      let w, h, stars;
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        makeStars();
+      }
+      window.addEventListener("resize", resize);
+      function makeStars() {
+        const count = Math.min(220, Math.floor((w * h) / 9000));
+        stars = Array.from({ length: count }, () => ({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          z: Math.random() * 0.7 + 0.3,
+          vx: (Math.random() - 0.5) * 0.08,
+          vy: (Math.random() - 0.5) * 0.08,
+        }));
+      }
+      function tick() {
+        ctx.clearRect(0, 0, w, h);
+        for (const s of stars) {
+          s.x += s.vx;
+          s.y += s.vy;
+          if (s.x < 0) s.x = w;
+          if (s.x > w) s.x = 0;
+          if (s.y < 0) s.y = h;
+          if (s.y > h) s.y = 0;
+          ctx.globalAlpha = s.z;
+          ctx.fillStyle = "#8ab4ff";
+          ctx.fillRect(s.x, s.y, 1.2, 1.2);
+        }
+        requestAnimationFrame(tick);
+      }
+      resize();
+      tick();
+
+      // Subtle mouse parallax on hero card
+      const parallax = document.querySelector(".hero-card");
+      if (parallax) {
+        parallax.addEventListener("mousemove", (e) => {
+          const r = parallax.getBoundingClientRect();
+          const dx = (e.clientX - (r.left + r.width / 2)) / r.width;
+          const dy = (e.clientY - (r.top + r.height / 2)) / r.height;
+          parallax.style.transform = `translateY(${dy * -6}px) rotateX(${
+            dy * -3
+          }deg) rotateY(${dx * 3}deg)`;
+        });
+        parallax.addEventListener("mouseleave", () => {
+          parallax.style.transform = "";
+        });
+      }
+    </script>
+  </body>
 </html>
